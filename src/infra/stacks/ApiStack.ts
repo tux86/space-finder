@@ -10,6 +10,11 @@ export class ApiStack extends Stack {
     constructor(scope: Construct, id: string, props: ApiStackProps) {
         super(scope, id, props);
 
+        /*
+         TODO: should use HttpAPI (not ready)
+         source: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-apigatewayv2-integrations-alpha-readme.html
+         */
+
         const api = new RestApi(this, 'SpacesApi')
 
         // spaces
@@ -18,5 +23,6 @@ export class ApiStack extends Stack {
         spacesResource.addMethod('POST', props.spacesLambdaIntegration)
         spacesResource.addMethod('PUT', props.spacesLambdaIntegration)
         spacesResource.addMethod('DELETE', props.spacesLambdaIntegration)
+       // spacesResource.addMethod('OPTIONS', props.spacesLambdaIntegration)
     }
 }
