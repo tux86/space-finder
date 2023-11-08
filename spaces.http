@@ -1,0 +1,22 @@
+GET {{API_BASE_URL}}/spaces
+###
+GET {{API_BASE_URL}}/spaces?id=d9262dc2-e6b7-4baf-a29a-d6d400616e0f
+###
+POST {{API_BASE_URL}}/spaces
+Content-Type: application/json
+
+{
+  "location": "Paris"
+}
+###
+PUT {{API_BASE_URL}}/spaces?id=d9262dc2-e6b7-4baf-a29a-d6d400616e0f
+Content-Type: application/json
+
+{
+  "location": "Tunis"
+}
+###
+DELETE {{API_BASE_URL}}/spaces?id=666eed1d-57e0-4711-b021-0003da11b3e6
+
+
+

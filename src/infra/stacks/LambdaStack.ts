@@ -33,6 +33,8 @@ export class LambdaStack extends Stack {
             resources: [props.spacesTable.tableArn],
             actions: [
                 'dynamodb:PutItem',
+                'dynamodb:UpdateItem',
+                'dynamodb:DeleteItem',
                 'dynamodb:Get*',
                 'dynamodb:Scan',
             ]

@@ -11,8 +11,12 @@ export class ApiStack extends Stack {
         super(scope, id, props);
 
         const api = new RestApi(this, 'SpacesApi')
+
+        // spaces
         const spacesResource = api.root.addResource('spaces')
         spacesResource.addMethod('GET', props.spacesLambdaIntegration)
         spacesResource.addMethod('POST', props.spacesLambdaIntegration)
+        spacesResource.addMethod('PUT', props.spacesLambdaIntegration)
+        spacesResource.addMethod('DELETE', props.spacesLambdaIntegration)
     }
 }
