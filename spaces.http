@@ -1,8 +1,0 @@
-GET https://xxxx.execute-api.eu-west-1.amazonaws.com/prod/spaces
-###
-POST https://xxx.execute-api.eu-west-1.amazonaws.com/prod/spaces
-Content-Type: application/json
-
-{}
-
-
