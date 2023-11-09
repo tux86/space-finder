@@ -6,27 +6,35 @@ import {DynamoDBDocumentClient} from "@aws-sdk/lib-dynamodb";
 import {updateSpace} from "./UpdateSpace";
 import {deleteSpace} from "./DeleteSpace";
 import {JSONError, MissingFieldError} from "../shared/Validator";
+import {addCorsHeader} from "../shared/Utils";
 
 const ddbClient = new DynamoDBClient({})
 const docClient = DynamoDBDocumentClient.from(ddbClient)
 
 async function handler(event: APIGatewayProxyEvent, context: Context) : Promise<APIGatewayProxyResult> {
 
-    let message: string
+    let response : APIGatewayProxyResult
 
     try {
         switch (event.httpMethod) {
             case 'GET':
-                return await getSpaces(event, docClient)
+                response = await getSpaces(event, docClient)
+                break
             case 'POST':
-                return await postSpaces(event, docClient)
+                response = await postSpaces(event, docClient)
+                break
             case 'PUT':
-                return await updateSpace(event, docClient)
+                response = await updateSpace(event, docClient)
+                break
             case 'DELETE':
-                return await deleteSpace(event, docClient)
+                response = await deleteSpace(event, docClient)
+                break
             default:
                 break;
         }
+
+        addCorsHeader(response)
+        return response
     } catch (error) {
         console.error(error)
         if (error instanceof  MissingFieldError) {
@@ -45,12 +53,6 @@ async function handler(event: APIGatewayProxyEvent, context: Context) : Promise<
             statusCode: 500,
             body: JSON.stringify(error.message)
         }
-    }
-
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify(message)
     }
 }
 

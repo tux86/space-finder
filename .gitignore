@@ -1,4 +1,5 @@
 .idea
 node_modules
 cdk.out
-http-client.private.env.json
+backend/http-client.private.env.json
+backend/outputs.json
