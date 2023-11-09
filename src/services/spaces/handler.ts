@@ -5,7 +5,7 @@ import {getSpaces} from "./GetSpaces";
 import {DynamoDBDocumentClient} from "@aws-sdk/lib-dynamodb";
 import {updateSpace} from "./UpdateSpace";
 import {deleteSpace} from "./DeleteSpace";
-import {JSONError, MissingFieldError} from "../../shared/Validator";
+import {JSONError, MissingFieldError} from "../shared/Validator";
 
 const ddbClient = new DynamoDBClient({})
 const docClient = DynamoDBDocumentClient.from(ddbClient)

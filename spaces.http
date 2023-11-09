@@ -1,9 +1,12 @@
 ### GET
 GET {{API_BASE_URL}}/spaces
+Authorization: {{TOKEN}}
 ### GET by id
 GET {{API_BASE_URL}}/spaces?id=d9262dc2-e6b7-4baf-a29a-d6d400616e0f
+Authorization: {{TOKEN}}
 ### POST
 POST {{API_BASE_URL}}/spaces
+Authorization: {{TOKEN}}
 Content-Type: application/json
 
 {
@@ -12,6 +15,7 @@ Content-Type: application/json
 }
 ### PUT
 PUT {{API_BASE_URL}}/spaces?id=d9262dc2-e6b7-4baf-a29a-d6d400616e0f
+Authorization: {{TOKEN}}
 Content-Type: application/json
 
 {
@@ -19,7 +23,7 @@ Content-Type: application/json
   "name": "So Great location"
 }
 ### DELETE
-DELETE {{API_BASE_URL}}/spaces?id=666eed1d-57e0-4711-b021-0003da11b3e6
-
+DELETE {{API_BASE_URL}}/spaces?id=ab0290e1-06a6-4600-8346-c2a84c56ab40
+Authorization: {{TOKEN}}
 
 
