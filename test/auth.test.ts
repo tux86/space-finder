@@ -16,7 +16,7 @@ async function testAuth() {
 
 async function listBuckets(credentials: any) {
     const client = new S3Client({
-        //credentials
+       credentials
     });
 
     const command  = new ListBucketsCommand({})
